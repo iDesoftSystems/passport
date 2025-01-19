@@ -1,0 +1,7 @@
+[workspace]
+members = ["passport_core"]
+resolver = "2"
+
+[workspace.dependencies]
+async-trait = "0.1.83"
+thiserror = { version = "2.0.11" }
