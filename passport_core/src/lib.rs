@@ -1,4 +1,4 @@
-mod auth;
+pub mod auth;
 mod decoder;
 mod encoder;
-mod user;
+pub mod user;
