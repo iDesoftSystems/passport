@@ -1,6 +1,8 @@
 use thiserror::Error;
 
 pub mod auth;
+pub mod claims;
+pub mod decoder;
 pub mod encoder;
 
 #[derive(Error, Debug)]
