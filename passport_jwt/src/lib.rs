@@ -1,6 +1,7 @@
 use thiserror::Error;
 
 pub mod auth;
+pub mod encoder;
 
 #[derive(Error, Debug)]
 pub enum TokenUsernamePasswordAuthFailure {
