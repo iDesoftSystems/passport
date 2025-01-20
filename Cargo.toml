@@ -2,7 +2,8 @@
 resolver = "2"
 members = [
     "passport_auth",
-    "passport_core"
+    "passport_core",
+    "passport_jwt"
 ]
 
 [workspace.dependencies]

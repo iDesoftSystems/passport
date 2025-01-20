@@ -1,0 +1,10 @@
+[package]
+name = "passport_jwt"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-trait = { workspace = true }
+thiserror = { workspace = true }
+passport_core = { workspace = true }
+tracing = { workspace = true }
