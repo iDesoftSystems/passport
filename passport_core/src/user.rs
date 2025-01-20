@@ -1,4 +1,4 @@
-pub trait UserClaims: Send + Sync {
+pub trait ClaimsPrincipal: Send + Sync {
     fn exp(&self) -> i64;
     fn iat(&self) -> i64;
     fn sub(&self) -> String;
