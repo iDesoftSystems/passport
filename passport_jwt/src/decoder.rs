@@ -9,6 +9,16 @@ pub struct AccessTokenDecoder {
     issuer: String,
 }
 
+impl AccessTokenDecoder {
+    pub fn new(decoding_key: DecodingKey, issuer: String, audience: String) -> Self {
+        Self {
+            decoding_key,
+            issuer,
+            audience,
+        }
+    }
+}
+
 #[async_trait::async_trait]
 impl DecodeAccessToken for AccessTokenDecoder {
     async fn decode_access_token(&self, access_token: String) -> DecoderResult {

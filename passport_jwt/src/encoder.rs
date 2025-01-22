@@ -9,6 +9,16 @@ pub struct UserEncoder {
     audience: String,
 }
 
+impl UserEncoder {
+    pub fn new(encoding_key: EncodingKey, issuer: String, audience: String) -> Self {
+        Self {
+            encoding_key,
+            issuer,
+            audience,
+        }
+    }
+}
+
 #[async_trait::async_trait]
 impl EncodeUserPrincipal for UserEncoder {
     async fn encode_user_principal(&self, user_details: &Box<dyn UserDetails>) -> EncoderResult {
