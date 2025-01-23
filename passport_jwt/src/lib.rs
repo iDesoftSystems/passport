@@ -15,12 +15,12 @@ pub enum TokenUsernamePasswordAuthFailure {
     Unknown,
 }
 
-pub struct AccessToken {
+pub struct Authentication {
     pub access_token: String,
     pub token_type: String,
 }
 
-impl AccessToken {
+impl Authentication {
     pub fn new_bearer(access_token: String) -> Self {
         Self {
             access_token,
@@ -29,7 +29,7 @@ impl AccessToken {
     }
 }
 
-pub type TokenUsernamePasswordAuthResult = Result<AccessToken, TokenUsernamePasswordAuthFailure>;
+pub type TokenUsernamePasswordAuthResult = Result<Authentication, TokenUsernamePasswordAuthFailure>;
 
 #[async_trait::async_trait]
 pub trait TokenUsernamePasswordAuth {
