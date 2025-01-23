@@ -8,6 +8,12 @@ pub struct UserAuthenticator {
     user_finder: Arc<dyn FindByUsername>,
 }
 
+impl UserAuthenticator {
+    pub fn new(user_finder: Arc<dyn FindByUsername>) -> Self {
+        Self { user_finder }
+    }
+}
+
 #[async_trait::async_trait]
 impl UsernamePasswordAuthentication for UserAuthenticator {
     async fn authenticate(&self, username: String, password: String) -> AuthenticatorResult {
