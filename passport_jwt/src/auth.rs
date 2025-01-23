@@ -6,6 +6,7 @@ use passport_core::auth::{UsernamePasswordAuthentication, UsernamePasswordAuthen
 use passport_core::encoder::EncodeUserPrincipal;
 use std::sync::Arc;
 
+#[derive(Clone)]
 pub struct TokenAuthManager {
     authenticator: Arc<dyn UsernamePasswordAuthentication>,
     encoder: Arc<dyn EncodeUserPrincipal>,
