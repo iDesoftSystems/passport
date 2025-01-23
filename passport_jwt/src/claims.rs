@@ -32,27 +32,27 @@ impl UserClaims {
 }
 
 impl ClaimsPrincipal for UserClaims {
-    fn exp(self) -> i64 {
+    fn exp(&self) -> i64 {
         self.exp
     }
 
-    fn iat(self) -> i64 {
+    fn iat(&self) -> i64 {
         self.iat
     }
 
-    fn sub(self) -> String {
-        self.sub
+    fn sub(&self) -> String {
+        self.sub.to_owned()
     }
 
-    fn sub_id(self) -> i32 {
+    fn sub_id(&self) -> i32 {
         self.sub_id
     }
 
-    fn iss(self) -> String {
-        self.iss
+    fn iss(&self) -> String {
+        self.iss.to_owned()
     }
 
-    fn aud(self) -> String {
-        self.aud
+    fn aud(&self) -> String {
+        self.aud.to_owned()
     }
 }
