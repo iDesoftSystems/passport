@@ -19,9 +19,12 @@ pub trait UsernamePasswordAuthentication: Send + Sync {
 }
 
 #[derive(Error, Debug)]
-pub enum FindByUsernameFailure {}
+pub enum FindByUsernameFailure {
+    #[error("unknown find by username error")]
+    Unknown,
+}
 
-type FindByUsernameResult = Result<Option<Box<dyn UserDetails>>, FindByUsernameFailure>;
+pub type FindByUsernameResult = Result<Option<Box<dyn UserDetails>>, FindByUsernameFailure>;
 
 #[async_trait::async_trait]
 pub trait FindByUsername: Send + Sync {
