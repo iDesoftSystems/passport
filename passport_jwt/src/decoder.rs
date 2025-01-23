@@ -3,6 +3,7 @@ use jsonwebtoken::errors::ErrorKind;
 use jsonwebtoken::{Algorithm, DecodingKey, Validation};
 use passport_core::decoder::{DecodeAccessToken, DecodeAccessTokenFailure, DecoderResult};
 
+#[derive(Clone)]
 pub struct AccessTokenDecoder {
     decoding_key: DecodingKey,
     audience: String,
