@@ -11,6 +11,18 @@ pub struct TokenAuthManager {
     encoder: Arc<dyn EncodeUserPrincipal>,
 }
 
+impl TokenAuthManager {
+    pub fn new(
+        encoder: Arc<dyn EncodeUserPrincipal>,
+        authenticator: Arc<dyn UsernamePasswordAuthentication>,
+    ) -> Self {
+        Self {
+            encoder,
+            authenticator,
+        }
+    }
+}
+
 #[async_trait::async_trait]
 impl TokenUsernamePasswordAuth for TokenAuthManager {
     async fn authenticate(
