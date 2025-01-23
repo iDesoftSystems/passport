@@ -1,5 +1,5 @@
 use crate::{
-    AccessToken, TokenUsernamePasswordAuth, TokenUsernamePasswordAuthFailure,
+    Authentication, TokenUsernamePasswordAuth, TokenUsernamePasswordAuthFailure,
     TokenUsernamePasswordAuthResult,
 };
 use passport_core::auth::{UsernamePasswordAuthentication, UsernamePasswordAuthenticationFailure};
@@ -56,6 +56,6 @@ impl TokenUsernamePasswordAuth for TokenAuthManager {
                 TokenUsernamePasswordAuthFailure::Unknown
             })?;
 
-        Ok(AccessToken::new_bearer(access_token))
+        Ok(Authentication::new_bearer(access_token))
     }
 }
