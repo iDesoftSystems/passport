@@ -6,6 +6,7 @@ use axum::response::{IntoResponse, Response};
 use axum::{http, Json};
 use passport_core::decoder::DecodeAccessToken;
 use serde_json::json;
+use std::sync::Arc;
 
 pub struct AuthError {
     message: String,
@@ -25,7 +26,7 @@ impl IntoResponse for AuthError {
 pub async fn authorization_middleware(
     mut req: Request,
     next: Next,
-    decoder: Box<dyn DecodeAccessToken>,
+    decoder: Arc<dyn DecodeAccessToken>,
 ) -> Result<Response<Body>, AuthError> {
     let header_value = req.headers_mut().get(http::header::AUTHORIZATION);
 
