@@ -42,7 +42,7 @@ pub async fn authorization_middleware(
 
     let mut header = auth_header.split_whitespace();
 
-    let (bearer, token) = (header.next(), header.next());
+    let (_, token) = (header.next(), header.next());
 
     let claims_principal = match decoder.decode_access_token(token.unwrap().into()).await {
         Ok(authentication) => authentication,

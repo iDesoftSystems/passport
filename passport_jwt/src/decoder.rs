@@ -2,6 +2,7 @@ use crate::claims::UserClaims;
 use jsonwebtoken::errors::ErrorKind;
 use jsonwebtoken::{Algorithm, DecodingKey, Validation};
 use passport_core::decoder::{DecodeAccessToken, DecodeAccessTokenFailure, DecoderResult};
+use std::sync::Arc;
 
 #[derive(Clone)]
 pub struct AccessTokenDecoder {
@@ -44,6 +45,6 @@ impl DecodeAccessToken for AccessTokenDecoder {
                     }
                 })?;
 
-        Ok(Box::new(result.claims))
+        Ok(Arc::new(result.claims))
     }
 }
