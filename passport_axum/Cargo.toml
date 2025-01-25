@@ -1,0 +1,9 @@
+[package]
+name = "passport_axum"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { workspace = true }
+serde_json = { workspace = true }
+passport_core = { workspace = true }
