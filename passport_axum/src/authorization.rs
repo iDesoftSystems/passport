@@ -1,4 +1,3 @@
-use axum::body::Body;
 use axum::extract::Request;
 use axum::http::StatusCode;
 use axum::middleware::Next;
@@ -27,7 +26,7 @@ pub async fn authorization_middleware(
     mut req: Request,
     next: Next,
     decoder: Arc<dyn DecodeAccessToken>,
-) -> Result<Response<Body>, AuthError> {
+) -> Result<Response, AuthError> {
     let header_value = req.headers_mut().get(http::header::AUTHORIZATION);
 
     let auth_header = match header_value {
