@@ -1,4 +1,5 @@
 use crate::user::ClaimsPrincipal;
+use std::sync::Arc;
 use thiserror::Error;
 
 #[derive(Error, Debug)]
@@ -17,7 +18,8 @@ pub enum DecodeAccessTokenFailure {
     Unknown,
 }
 
-pub type DecoderResult = Result<Box<dyn ClaimsPrincipal>, DecodeAccessTokenFailure>;
+pub type DecoderResult = Result<Arc<dyn ClaimsPrincipal>, DecodeAccessTokenFailure>;
+
 #[async_trait::async_trait]
 pub trait DecodeAccessToken {
     async fn decode_access_token(&self, access_token: String) -> DecoderResult;
